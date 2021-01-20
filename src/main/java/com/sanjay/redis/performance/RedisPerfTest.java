@@ -40,13 +40,13 @@ public class RedisPerfTest {
           }
       }
 
-      System.out.println("Time taken = " + (System.currentTimeMillis() - startTIime));
+      System.out.println("Time taken fort map = " + (System.currentTimeMillis() - startTIime));
       long startTIime2 = System.currentTimeMillis();
       for (int j = 0; j < 100000; j++) {
           RList<Double> list =  client.getList("list");
           list.add(5.045d +j);
       }
-      System.out.println("Time taken = " + (System.currentTimeMillis() - startTIime2));
+      System.out.println("Time taken for list = " + (System.currentTimeMillis() - startTIime2));
       service.shutdown();
       client.shutdown();
    }
