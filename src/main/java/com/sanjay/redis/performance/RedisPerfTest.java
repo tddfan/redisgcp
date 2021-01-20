@@ -27,7 +27,7 @@ public class RedisPerfTest {
 
       ExecutorService service = Executors.newFixedThreadPool(10);
       List<Future<?>> futures = new ArrayList<>();
-      for (int i = 0; i < 2; i++) {
+      for (int i = 0; i < 1; i++) {
           final int batch = i;
           Future<?> future = service.submit(() -> putBatch(client, batch));
           futures.add(future);
@@ -40,11 +40,13 @@ public class RedisPerfTest {
           }
       }
 
+      System.out.println("Time taken = " + (System.currentTimeMillis() - startTIime));
+      long startTIime2 = System.currentTimeMillis();
       for (int j = 0; j < 100000; j++) {
           RList<Double> list =  client.getList("list");
           list.add(5.045d +j);
       }
-      System.out.println("Time taken = " + (System.currentTimeMillis() - startTIime));
+      System.out.println("Time taken = " + (System.currentTimeMillis() - startTIime2));
    }
 
     private static void putBatch(RedissonClient client, int i) {
