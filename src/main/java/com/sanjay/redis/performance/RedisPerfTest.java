@@ -7,10 +7,12 @@ import org.redisson.config.Config;
 
 public class RedisPerfTest {
   public static void main(String[] args) {
+        String url = "rediss://10.154.0.2:6379";
+
         Config config = new Config();
         config.useSingleServer()
                 // use "rediss://" for SSL connection
-                .setAddress("rediss://127.0.0.1:6379");
+                .setAddress(url);
         RedissonClient client = Redisson.create(config);
         long startTIime = System.currentTimeMillis();
 
