@@ -47,6 +47,8 @@ public class RedisPerfTest {
           list.add(5.045d +j);
       }
       System.out.println("Time taken = " + (System.currentTimeMillis() - startTIime2));
+      service.shutdown();
+      client.shutdown();
    }
 
     private static void putBatch(RedissonClient client, int i) {
