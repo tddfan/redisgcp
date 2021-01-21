@@ -26,7 +26,7 @@ public class RedisPerfTest {
 
       ExecutorService service = Executors.newFixedThreadPool(16);
       List<Future<?>> futures = new ArrayList<>();
-      for (int i = 0; i < 200; i++) {
+      for (int i = 0; i < 1000; i++) {
           final int batch = i;
           Future<?> future = service.submit(() -> putBatch(client, batch));
           futures.add(future);
