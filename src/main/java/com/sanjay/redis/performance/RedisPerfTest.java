@@ -14,7 +14,7 @@ import java.util.concurrent.Future;
 
 public class RedisPerfTest {
   public static void main(String[] args) {
-    String url = "redis://10.154.0.7:6379";
+    String url = "redis://10.154.0.8:6379";
 
     Config config = new Config();
     config.useSingleServer()
@@ -55,7 +55,7 @@ public class RedisPerfTest {
         long startTIime2 = System.currentTimeMillis();
         RBatch batch = client.createBatch();
         RMapAsync<Object, Object> map = batch.getMap("map" + i);
-        for (int j = 0; j < 100000; j++) {
+        for (int j = 0; j < 100vi 000; j++) {
             map.fastPutAsync("key"+j +i, 5.045d + i*j);
         }
         batch.executeAsync();
