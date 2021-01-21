@@ -23,9 +23,9 @@ public class RedisPerfTest {
     System.out.println("Starting work");
     long startTIime = System.currentTimeMillis();
 
-      ExecutorService service = Executors.newFixedThreadPool(15);
+      ExecutorService service = Executors.newFixedThreadPool(50);
       List<Future<?>> futures = new ArrayList<>();
-      for (int i = 0; i < 15; i++) {
+      for (int i = 0; i < 50; i++) {
           final int batch = i;
           Future<?> future = service.submit(() -> putBatch(client, batch));
           futures.add(future);
