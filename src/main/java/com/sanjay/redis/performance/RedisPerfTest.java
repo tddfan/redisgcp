@@ -14,7 +14,7 @@ import java.util.concurrent.Future;
 
 public class RedisPerfTest {
   public static void main(String[] args) {
-    String url = "redis://10.154.0.8:6379";
+    String url = "redis://34.71.85.238:6379";
 
     Config config = new Config();
     config.useSingleServer()
@@ -26,7 +26,7 @@ public class RedisPerfTest {
 
       ExecutorService service = Executors.newFixedThreadPool(16);
       List<Future<?>> futures = new ArrayList<>();
-      for (int i = 0; i < 5000; i++) {
+      for (int i = 0; i < 2000; i++) {
           final int batch = i;
           Future<?> future = service.submit(() -> putBatch(client, batch));
           futures.add(future);
