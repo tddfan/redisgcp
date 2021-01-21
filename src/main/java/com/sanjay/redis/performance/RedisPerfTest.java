@@ -25,7 +25,7 @@ public class RedisPerfTest {
 
       ExecutorService service = Executors.newFixedThreadPool(50);
       List<Future<?>> futures = new ArrayList<>();
-      for (int i = 0; i < 50; i++) {
+      for (int i = 0; i < 1000; i++) {
           final int batch = i;
           Future<?> future = service.submit(() -> putBatch(client, batch));
           futures.add(future);
@@ -39,13 +39,13 @@ public class RedisPerfTest {
       }
 
       System.out.println("Time taken fort map = " + (System.currentTimeMillis() - startTIime));
-      long startTIime2 = System.currentTimeMillis();
-      for (int j = 0; j < 100000; j++) {
-          RList<Double> list =  client.getList("list");
-          list.add(5.045d +j);
-      }
-      System.out.println("Time taken for list = " + (System.currentTimeMillis() - startTIime2));
-      service.shutdown();
+//      long startTIime2 = System.currentTimeMillis();
+//      for (int j = 0; j < 100000; j++) {
+//          RList<Double> list =  client.getList("list");
+//          list.add(5.045d +j);
+//      }
+//      System.out.println("Time taken for list = " + (System.currentTimeMillis() - startTIime2));
+//      service.shutdown();
       client.shutdown();
    }
 
@@ -54,7 +54,7 @@ public class RedisPerfTest {
         long startTIime2 = System.currentTimeMillis();
         RBatch batch = client.createBatch();
         RMapAsync<Object, Object> map = batch.getMap("map" + i);
-        for (int j = 0; j < 100000; j++) {
+        for (int j = 0; j < 10000; j++) {
             map.fastPutAsync("key"+j +i, 5.045d + i*j);
         }
         batch.executeAsync();
