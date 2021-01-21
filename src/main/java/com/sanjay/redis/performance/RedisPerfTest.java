@@ -1,9 +1,7 @@
 package com.sanjay.redis.performance;
 
 import org.redisson.Redisson;
-import org.redisson.api.RList;
-import org.redisson.api.RMap;
-import org.redisson.api.RedissonClient;
+import org.redisson.api.*;
 import org.redisson.config.Config;
 
 import java.util.ArrayList;
@@ -27,7 +25,7 @@ public class RedisPerfTest {
 
       ExecutorService service = Executors.newFixedThreadPool(100);
       List<Future<?>> futures = new ArrayList<>();
-      for (int i = 0; i < 100; i++) {
+      for (int i = 0; i < 10; i++) {
           final int batch = i;
           Future<?> future = service.submit(() -> putBatch(client, batch));
           futures.add(future);
@@ -54,10 +52,12 @@ public class RedisPerfTest {
     private static void putBatch(RedissonClient client, int i) {
         System.out.println("Running batch " + i);
         long startTIime2 = System.currentTimeMillis();
-        RMap<Object, Object> map = client.getMap("map"+i);
+        RBatch batch = client.createBatch();
+        RMapAsync<Object, Object> map = batch.getMap("map" + i);
         for (int j = 0; j < 100000; j++) {
-            map.fastPut("key"+j +i, 5.045d + i*j);
+            map.fastPutAsync("key"+j +i, 5.045d + i*j);
         }
+        batch.execute();
         System.out.println("Finishing batch " + i +  " in " + (System.currentTimeMillis() - startTIime2));
     }
 }
