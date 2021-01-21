@@ -58,7 +58,7 @@ public class RedisPerfTest {
         for (int j = 0; j < 1000000; j++) {
             map.fastPutAsync("key"+j +i, 5.045d + i*j);
         }
-        batch.executeAsync();
+        batch.execute();
         System.out.println("Finishing batch " + i +  " in " + (System.currentTimeMillis() - startTIime2));
     }
 }
