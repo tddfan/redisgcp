@@ -23,9 +23,9 @@ public class RedisPerfTest {
     System.out.println("Starting work");
     long startTIime = System.currentTimeMillis();
 
-      ExecutorService service = Executors.newFixedThreadPool(25);
+      ExecutorService service = Executors.newFixedThreadPool(15);
       List<Future<?>> futures = new ArrayList<>();
-      for (int i = 0; i < 25; i++) {
+      for (int i = 0; i < 15; i++) {
           final int batch = i;
           Future<?> future = service.submit(() -> putBatch(client, batch));
           futures.add(future);
@@ -57,7 +57,7 @@ public class RedisPerfTest {
         for (int j = 0; j < 100000; j++) {
             map.fastPutAsync("key"+j +i, 5.045d + i*j);
         }
-        batch.execute();
+        batch.executeAsync();
         System.out.println("Finishing batch " + i +  " in " + (System.currentTimeMillis() - startTIime2));
     }
 }
