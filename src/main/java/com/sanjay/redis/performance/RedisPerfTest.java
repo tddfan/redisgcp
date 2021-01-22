@@ -31,7 +31,7 @@ public class RedisPerfTest {
       List<Future<?>> futures = new ArrayList<>();
       for (int i = 0; i < 10000; i++) {
           final int batch = i;
-          Future<?> future = service.submit(() -> putBatch(client, batch));
+          Future<?> future = service.submit(() -> putMapBatch(client, batch));
           futures.add(future);
       }
       for (Future<?> future : futures) {
@@ -69,7 +69,7 @@ public class RedisPerfTest {
         long startTIime2 = System.currentTimeMillis();
         RMap<Object, Object> map = client.getMap("map" + i);
         for (int j = 0; j < 10000; j++) {
-            map.fastPut("key"+j +i, 5.045d + i*j);
+            map.fastPut("key"+j +i, new Value(i*j+"" , 5.045d + i*j, i*j+""));
         }
 
         System.out.println("Finishing batch " + i +  " in " + (System.currentTimeMillis() - startTIime2));
@@ -79,7 +79,7 @@ public class RedisPerfTest {
         long startTIime2 = System.currentTimeMillis();
         RMapCache<Object, Object> map = client.getMapCache("map" + i);
         for (int j = 0; j < 10000; j++) {
-            map.fastPut("key"+j +i, 5.045d + i*j);
+            map.fastPut("key"+j +i, new Value(i*j+"" , 5.045d + i*j, i*j+""));
         }
 
         System.out.println("Finishing batch " + i +  " in " + (System.currentTimeMillis() - startTIime2));
