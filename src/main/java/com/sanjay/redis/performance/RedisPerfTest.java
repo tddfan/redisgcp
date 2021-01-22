@@ -31,7 +31,7 @@ public class RedisPerfTest {
       List<Future<?>> futures = new ArrayList<>();
       for (int i = 0; i < 10000; i++) {
           final int batch = i;
-          Future<?> future = service.submit(() -> putMapBatch(client, batch));
+          Future<?> future = service.submit(() -> putBatch(client, batch));
           futures.add(future);
       }
       for (Future<?> future : futures) {
