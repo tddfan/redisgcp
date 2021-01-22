@@ -14,7 +14,7 @@ import java.util.concurrent.Future;
 
 public class RedisPerfTest {
   public static void main(String[] args) {
-    String url = "redis://10.154.0.9:6379";
+    String url = "redis://10.154.0.10:6379";
 
     Config config = new Config();
     config.useSingleServer()
