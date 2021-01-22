@@ -79,7 +79,7 @@ public class RedisPerfTest {
         long startTIime2 = System.currentTimeMillis();
         RMapCache<Object, Object> map = client.getMapCache("map" + i);
         for (int j = 0; j < 10000; j++) {
-            map.fastPut("key"+j +i, new Value(i*j+"" , 5.045d + i*j, i*j+""));
+            map.fastPut("key"+j +i, 5.045d + i*j);
         }
 
         System.out.println("Finishing batch " + i +  " in " + (System.currentTimeMillis() - startTIime2));
