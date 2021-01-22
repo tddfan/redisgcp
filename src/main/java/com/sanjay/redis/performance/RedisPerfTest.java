@@ -7,6 +7,7 @@ import org.redisson.api.RedissonClient;
 import org.redisson.config.Config;
 import org.redisson.api.RMap;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
@@ -87,7 +88,7 @@ public class RedisPerfTest {
 
 }
 
-class Value {
+class Value implements Serializable {
     String id;
     double val;
 
