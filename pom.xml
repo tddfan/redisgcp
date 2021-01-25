@@ -46,11 +46,11 @@
             <artifactId>redisson</artifactId>
             <version>3.12.2</version>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>com.google.cloud</groupId>-->
-            <!--<artifactId>google-cloud-pubsub</artifactId>-->
-            <!--<version>1.110.3</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>com.google.cloud</groupId>
+            <artifactId>google-cloud-pubsub</artifactId>
+            <version>1.110.3</version>
+        </dependency>
         <dependency>
             <groupId>com.google.cloud</groupId>
             <artifactId>google-cloud-pubsub</artifactId>
