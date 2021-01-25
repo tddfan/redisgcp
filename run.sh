@@ -1,1 +1,1 @@
-sudo java -cp  /home/redisgcp/target/redis-gcp-1.0-SNAPSHOT-jar-with-dependencies.jar  com.sanjay.redis.performance.RedisPerfTest
+udo java -cp  /home/esanjay_in/redisgcp/target/redis-gcp-1.0-SNAPSHOT-jar-with-dependencies.jar  com.sanjay.redis.performance.RedisPerfTest -Xmx4g -XX:MaxDirectMemorySize=4g
