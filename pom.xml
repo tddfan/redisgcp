@@ -59,20 +59,20 @@
 
     <build>
         <plugins>
-            <!--<plugin>-->
-                <!--<groupId>org.apache.maven.plugins</groupId>-->
-                <!--<artifactId>maven-jar-plugin</artifactId>-->
-                <!--<configuration>-->
-                    <!--<archive>-->
-                        <!--<manifest>-->
-                            <!--<addClasspath>true</addClasspath>-->
-                            <!--<classpathPrefix>lib/</classpathPrefix>-->
-                            <!--<mainClass>YOUR_MAIN_CLASS_NAME</mainClass>-->
-                        <!--</manifest>-->
-                    <!--</archive>-->
-                <!--</configuration>-->
-            <!--</plugin>-->
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>com.sanjay.redis.performance.PublisherPubSub</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
+<!--            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>3.3.0</version>
@@ -102,7 +102,7 @@
                         </manifest>
                     </archive>
                 </configuration>
-            </plugin>
+            </plugin>-->
         </plugins>
     </build>
 </project>
