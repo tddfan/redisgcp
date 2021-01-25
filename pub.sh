@@ -1,1 +1,2 @@
+GOOGLE_APPLICATION_CREDENTIALS=spring-index-302215-96b949e5f2d6.json
 sudo java -cp  /home/esanjay_in/redisgcp/target/redis-gcp-1.0-SNAPSHOT-jar-with-dependencies.jar  com.sanjay.redis.performance.PublisherPubSub
