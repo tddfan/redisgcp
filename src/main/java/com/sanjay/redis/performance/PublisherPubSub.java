@@ -11,6 +11,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
 public class PublisherPubSub {
+
     public static void main(String... args) throws Exception {
         String projectId = "spring-index-302215";
         String subscriptionId = "test1";
